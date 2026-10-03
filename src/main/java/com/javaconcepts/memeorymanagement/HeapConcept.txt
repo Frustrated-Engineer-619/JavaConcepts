@@ -1,0 +1,76 @@
+Heap Memory :
+
+Heap Memory gets divided into major parts :
+[Young Generation ( Eden | S0 | S1 - Survivor Space )] | [Old Generation]
+
+Whenever we create a new Object, it will go to heap memory in the EDEN part.
+EDEN : Allocation is very fast.
+
+The garbage collection that runs in the young generation is called Minor GC.
+
+Age factor in the young generation  before moving it to old generation.
+
+
+OLD GENERATION :
+Major GC runs in the memory.
+Expensive
+Runs less frequently
+
+
+Types of References :
+
+1. Strong Reference
+2. Soft Reference
+3. Weak Reference
+4. Phantom Reference
+
+
+Strong Reference :
+    Student s1 = new Student();
+
+Soft Reference :
+    SoftReference<Student> sr = new SoftReference();
+    sr.get();
+
+Weak Reference :
+    WeakReference<Student> s3 = new WeakReference();
+
+
+Garbage Collection :
+    Mark and Sweep
+    Mark Compact
+    Copying
+
+Mark and Sweep (Major GC):
+    Heap : [A] [B] [C] [D] [E]
+    ->    [A] []  [C] []  [E]
+
+    Fragmentation Left
+
+MARK AND COMPACT :
+    Heap : [A] [B] [C] [D] [E]
+    ->    [A] [C] [E]
+
+    No Fragmentation left.
+    Moving Object is costly.
+
+COPYING [Minor GC] :
+    Eden :
+        [A] [B] [C] [D]
+    S0 :
+        [B] [D]
+    S1 :
+        [B] [D]
+
+
+Garbage Collection:
+It stop the world. (STW)
+
+Sequential GC
+
+Parallel GC -> Multiple Thread
+
+Heap Memory got full will get : OUT OF MEMORY ERROR
+|-> HEAP DUMP : snapshot of the current heap memory
+
+
